@@ -1,6 +1,7 @@
 package com.AcharyaUniversity_ERP.Testcase;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 import com.AcharyaUniversity_ERP.Pageobject.LoginFunctionalitypage_University;
 import com.AcharyaUniversity_ERP.Utility.Readconfig;
