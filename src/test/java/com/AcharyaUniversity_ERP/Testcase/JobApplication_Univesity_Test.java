@@ -40,8 +40,9 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 			//page.rowssize();
 			//page.updating_HR_status();
 			//page.Scheduling_interview();
-		    page.Result();
+		   // page.Result();
 			//page.salaryBreakUp();
+			page.validatingofferletter();
 			//page.job_offer();
 			//page.FixedTerm_Recruitment();
 			
