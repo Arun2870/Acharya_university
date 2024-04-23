@@ -19,6 +19,7 @@ import com.AcharyaUniversity_ERP.Utility.ReuseMethods;
 public class JobApplicationPage_University {
 	public  WebDriver driver;
 	public  ExplicitwaitMethods wait;
+	public ReuseMethods reuse;
 
 	public JobApplicationPage_University(WebDriver driver) {
 		this.driver = driver;
@@ -66,6 +67,9 @@ public class JobApplicationPage_University {
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[13]/button")
 	public WebElement Recruitment;
+	
+	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[11]/button")
+	public WebElement offerletter;
 	
 	@FindBy(id = "mui-component-select-hrStatus")
 	public WebElement status;
@@ -212,7 +216,7 @@ public class JobApplicationPage_University {
     date.sendKeys(Keys.DELETE);
     date.sendKeys("candidate shortlisted");
     
-    date.sendKeys(ReuseMethods.getthefreshdate()); //enter date
+    date.sendKeys(ReuseMethods.getthefreshdatewithHrs()); //enter date
 	 
 	WebElement okbutton = driver.findElement(By.xpath("//button[text()='OK']"));
 	wait.displayStatusOfElement(okbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
@@ -250,12 +254,10 @@ public class JobApplicationPage_University {
 	
 	//Result
 	
-	public void Result() 
+	public void Result() throws InterruptedException 
 	{
-	
 	wait = new ExplicitwaitMethods(driver);
 	
-	wait.displayStatusOfElement(Resultplusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	wait.clickOnElement(Resultplusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	
 	WebElement inter1 = driver.findElement(By.xpath("(//textarea)[1]"));
@@ -292,30 +294,41 @@ public class JobApplicationPage_University {
 	wait.clickOnElement(Submit4, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	
 	//pdf file attach
-	driver.findElement(By.xpath("//input[@type=\"file\"]")).sendKeys("C:\\Users\\admin\\eclipse-workspace\\AcharyaUniversity_ERP\\TestData\\Testing blank document.pdf");
 	
-    driver.findElement(By.xpath("//input[@name=\"marks\"]")).sendKeys("60");
-    driver.findElement(By.xpath("//h6")).click();
+	WebElement pdfattach = driver.findElement(By.xpath("//input[@type=\"file\"]"));
+	wait.waitForVisibilityOfElement(pdfattach, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+	wait.typeTextIntoElement(pdfattach, "C:\\Users\\admin\\eclipse-workspace\\AcharyaUniversity_ERP\\TestData\\Testing blank document.pdf", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	
-	driver.findElement(By.xpath("//button[text()='Selected']")).click();
+	WebElement totalmarksfor60 =  driver.findElement(By.xpath("//input[@name=\"marks\"]"));
+	wait.typeTextIntoElement(totalmarksfor60, "60", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	
-	driver.findElement(By.xpath("//strong[text()='Yes']")).click();
+	
+    // here it is redirecting to dashboardpage after clicking it should be on the result page only
+    
+	WebElement submitbutton =   driver.findElement(By.xpath("//h6"));
+	wait.clickOnElement(submitbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+	
+	WebElement selected = driver.findElement(By.xpath("//button[text()='Selected']"));
+	wait.clickOnElement(selected, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+	
+	WebElement yesbutton = 	driver.findElement(By.xpath("//strong[text()='Yes']"));
+	wait.clickOnElement(yesbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	
 	}
 	
-	public void salaryBreakUp() throws InterruptedException
+	public void salaryBreakUp() throws InterruptedException, ParseException
 	{
 		 wait = new ExplicitwaitMethods (driver);
-		wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		 wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		//driver.navigate().refresh();
 		
-		driver.findElement(By.id("mui-component-select-employeeType")).click();
+		 WebElement emptypefield = 	driver.findElement(By.id("mui-component-select-employeeType"));
+		 wait.clickOnElement(emptypefield, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		Thread.sleep(3000);
-		
-		List<WebElement> emptype = driver.findElements(By.xpath("//ul[@role=\"listbox\"]/li"));
-		wait.selectdropdownwithnoselecttag(emptype, "Fixed Term Recruitment", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		List<WebElement> emptypevalues = driver.findElements(By.xpath("//ul[@role=\"listbox\"]/li"));
+		wait.selectdropdownwithnoselecttag(emptypevalues, "Fixed Term Recruitment", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		WebElement school = driver.findElement(By.xpath("(//input[@role=\"combobox\"])[1]"));
 		
@@ -333,54 +346,91 @@ public class JobApplicationPage_University {
 		
 		commonmethod(jobtype, "Teaching Admin");
 		
-		driver.findElement(By.xpath("//textarea[@name=\"remarks\"]")).sendKeys("testing from erp");
+		WebElement remarks = driver.findElement(By.xpath("//textarea[@name=\"remarks\"]"));
+		remarks.sendKeys(Keys.CONTROL + "a");	
+		remarks.sendKeys(Keys.DELETE);
+		wait.typeTextIntoElement(remarks, "testing from erp", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+				
+		WebElement fromdatefield	 = driver.findElement(By.xpath("(//input[@aria-label=\"Choose date\"])[1]"));
+		 wait.clickOnElement(fromdatefield, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+
+		
+		 WebElement fromdatePenIcon =  driver.findElement(By.xpath("//*[@data-testid=\"PenIcon\"]"));
+		 wait.clickOnElement(fromdatePenIcon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		
+		 WebElement fromdatevalue =	driver.findElement(By.xpath("//*[@type=\"tel\"]"));
+		 wait.typeTextIntoElement(fromdatevalue, ReuseMethods.getthefreshdate(), ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+				
+		 WebElement fromdatevalueokbutton =  driver.findElement(By.xpath("//*[text()='OK']"));
+		 wait.clickOnElement(fromdatevalueokbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+			
+		 WebElement todatefield  =  driver.findElement(By.xpath("//input[@aria-label=\"Choose date\"]"));
+		 wait.clickOnElement(todatefield, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		
-		
-		driver.findElement(By.xpath("(//input[@aria-label=\"Choose date\"])[1]")).click();
-		
-		driver.findElement(By.xpath("//*[@data-testid=\"PenIcon\"]")).click();
-		
-		driver.findElement(By.xpath("//*[@type=\"tel\"]")).sendKeys("13/04/2024");
-		
-		driver.findElement(By.xpath("//*[text()='OK']")).click();
+		 WebElement todatePenIcon =  driver.findElement(By.xpath("//*[@data-testid=\"PenIcon\"]"));
+		 wait.clickOnElement(todatePenIcon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		
-       driver.findElement(By.xpath("//input[@aria-label=\"Choose date\"]")).click();
-		
-		driver.findElement(By.xpath("//*[@data-testid=\"PenIcon\"]")).click();
-		
-		driver.findElement(By.xpath("//*[@type=\"tel\"]")).sendKeys("13/10/2024");
-		
-		driver.findElement(By.xpath("//*[text()='OK']")).click();
+		 WebElement todatevalue	= driver.findElement(By.xpath("//*[@type=\"tel\"]"));
+		 wait.typeTextIntoElement(todatevalue, ReuseMethods.gettheafter184daysfreshdate(), ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+				 
+		 WebElement todatokbutton	=  driver.findElement(By.xpath("//*[text()='OK']"));
+		 wait.clickOnElement(todatokbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		WebElement salary_structure = driver.findElement(By.xpath("(//*[@role=\"combobox\"])[5]"));
 		
 		commonmethod(salary_structure, "Special Salary Structure 4");
+			
+		WebElement basic = 	driver.findElement(By.xpath("//*[@name=\"basic-lumpsum\"]"));
+		basic.sendKeys(Keys.CONTROL + "a");	
+		basic.sendKeys(Keys.DELETE);
+		 wait.typeTextIntoElement(basic, "3000", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		Thread.sleep(3000);
+		 WebElement specialpay = driver.findElement(By.xpath("//*[@name=\"spl_1-lumpsum\"]"));
+		 specialpay.sendKeys(Keys.CONTROL + "a");	
+		 specialpay.sendKeys(Keys.DELETE);
+		 wait.typeTextIntoElement(specialpay, "2000", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
+		 WebElement travellingallow = 	driver.findElement(By.xpath("//*[@name='ta-lumpsum']"));
+		 travellingallow.sendKeys(Keys.CONTROL + "a");	
+		 travellingallow.sendKeys(Keys.DELETE);
+		 wait.typeTextIntoElement(travellingallow, "1000", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		driver.findElement(By.xpath("//*[@name=\"basic-lumpsum\"]")).sendKeys("3000");
+		 WebElement submitbutton =	driver.findElement(By.xpath("//button[text()='Submit']"));
+		 wait.clickOnElement(submitbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		driver.findElement(By.xpath("//*[@name=\"spl_1-lumpsum\"]")).sendKeys("2000");
+		 WebElement generatectcbutton = driver.findElement(By.xpath("//*[text()='Generate CTC']"));
+		 wait.displayStatusOfElement(generatectcbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		 wait.clickOnElement(generatectcbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		driver.findElement(By.xpath("//*[@name='ta-lumpsum']")).sendKeys("1000");
+		 WebElement Salarybreakup = driver.findElement(By.xpath("//button[text()='Salary Breakup']"));
+		 wait.displayStatusOfElement(Salarybreakup, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		 wait.clickOnElement(Salarybreakup, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
+		 WebElement salarybreakupremarks = 	driver.findElement(By.xpath("//*[@name=\"remarks\"]"));
+		 wait.typeTextIntoElement(salarybreakupremarks, "test", ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		
+		 WebElement salarybreakupsubmitbutton = driver.findElement(By.xpath("//button[text()='Submit']"));
+		 wait.clickOnElement(salarybreakupsubmitbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		
+		 WebElement salarybreakupyes = 	driver.findElement(By.xpath("//strong[text() = 'Yes']"));		
+		 wait.clickOnElement(salarybreakupyes, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	
-		
-		driver.findElement(By.xpath("//button[text()='Submit']")).click();
-		
-		driver.findElement(By.xpath("//*[text()='Generate CTC']")).click();
-		
-		driver.findElement(By.xpath("//button[text()='Salary Breakup']")).click();
-		
-		driver.findElement(By.xpath("//*[@name=\"remarks\"]")).sendKeys("test");
-		
-		driver.findElement(By.xpath("//button[text()='Submit']")).click();
-		
-		driver.findElement(By.xpath("//strong[text() = 'Yes']")).click();		
+	}
 	
+	
+	
+	public void validatingofferletter()
+	{
+		 wait = new ExplicitwaitMethods (driver);
+		 wait.clickOnElement(offerletter, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		 
+		 reuse = new ReuseMethods(driver);
+		 reuse. downloadtospecificpath();
+		 
+		// wait.clickOnElement(downloadbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);	 
+		
 	}
 	
 	
