@@ -1,7 +1,13 @@
 package com.AcharyaUniversity_ERP.Pageobject;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
+import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,6 +16,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods;
@@ -419,18 +427,44 @@ public class JobApplicationPage_University {
 	
 	}
 	
-	
-	
-	public void validatingofferletter()
+
+	public void validatingofferletter() throws InterruptedException, AWTException
 	{
-		 wait = new ExplicitwaitMethods (driver);
+		wait = new ExplicitwaitMethods (driver);
 		 wait.clickOnElement(offerletter, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		 
-		 reuse = new ReuseMethods(driver);
-		 reuse. downloadtospecificpath();
-		 
-		// wait.clickOnElement(downloadbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);	 
+		Thread.sleep(3000);
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3000));
+		wait.until(ExpectedConditions.urlContains(""));
+		 
+		Set<String> handels =  driver.getWindowHandles();
+		
+	Iterator<String> it = 	handels.iterator();
+	String parentwindow = it.next();
+	String childwindow = it.next();
+	
+	System.out.println(childwindow);
+	
+
+	 Thread.sleep(3000);
+	 
+	driver.switchTo().window(childwindow);
+		 	
+		Robot robot = new Robot();
+		
+	for(int i=0 ; i<=8; i++)
+	{
+		Thread.sleep(300);
+		robot.keyPress(KeyEvent.VK_TAB);
+	}
+
+	
+	Thread.sleep(300);      	
+    robot.keyPress(KeyEvent.VK_ENTER);
+        
+
+        
 	}
 	
 	

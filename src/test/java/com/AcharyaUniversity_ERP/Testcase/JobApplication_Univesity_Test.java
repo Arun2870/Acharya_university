@@ -1,6 +1,8 @@
 package com.AcharyaUniversity_ERP.Testcase;
 
 import org.testng.annotations.Test;
+
+import java.awt.AWTException;
 import java.text.ParseException;
 
 import org.testng.annotations.Test;
@@ -15,7 +17,7 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 	
 
 	@Test
-	public void jobapplication() throws InterruptedException, ParseException 
+	public void jobapplication() throws InterruptedException, ParseException, AWTException 
 	{
 		 page = new JobApplicationPage_University(driver);	
 		
