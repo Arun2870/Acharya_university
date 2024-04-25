@@ -2,6 +2,8 @@ package com.AcharyaUniversity_ERP.Pageobject;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.time.Duration;
@@ -98,6 +100,10 @@ public class JobApplicationPage_University {
 	@FindBy(xpath = "//input[@type=\"search\"]")
 	public WebElement applicantsearchfield;
 	
+	@FindBy(xpath = "//div[@class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6\"]/div/div/span)[1]")
+	public WebElement interviewervalue;
+	
+	
 	
 	public void LandingonJobportalpage() throws InterruptedException
 	{
@@ -110,9 +116,9 @@ public class JobApplicationPage_University {
 		
 		wait.clickOnElement(jobportal, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);	
 		
-        Readconfig read = new Readconfig();
+       // Readconfig read = new Readconfig();
 		
-		applicantsearchfield.sendKeys(read.applicant_search_field());
+		//applicantsearchfield.sendKeys(read.applicant_search_field());
 		
 	}
 	
@@ -161,6 +167,8 @@ public class JobApplicationPage_University {
  
 	driver.findElement(By.xpath("//button[text()='Update']")).click();  // update button
 	
+	
+	wait.getTextFromElement(HRStatus, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	String Hrsstatus = HRStatus.getText();
 	System.out.println(Hrsstatus);
 	
@@ -175,39 +183,66 @@ public class JobApplicationPage_University {
 		wait = new ExplicitwaitMethods(driver);
 		wait.clickOnElement(Interviewplusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
+		for(int i=0; i<1; i++)
+		{		
+		
+            wait.clickOnElement(interviewer, 3000);
+			
+			interviewer.sendKeys("divyakumari@acharya.ac.in");
+			interviewer.sendKeys(Keys.ARROW_DOWN);
+			interviewer.sendKeys(Keys.ENTER);
 
-	for(int i=0; i<1; i++)
-	{		
-	WebElement element = driver.findElement(By.xpath("(//div[@class=\"MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6\"]/div/div/span)[1]"));
+			wait.clickOnElement(interviewer, 3000);
+			interviewer.sendKeys("arun2870@acharya.ac.in");
+			interviewer.sendKeys(Keys.ARROW_DOWN);
+			interviewer.sendKeys(Keys.ENTER);
+			
+			wait.clickOnElement(interviewer, 3000);
+			interviewer.sendKeys("kaushal12@acharya.ac.in");
+			interviewer.sendKeys(Keys.ARROW_DOWN);
+			interviewer.sendKeys(Keys.ENTER);
 		
-	if(element.getText() != null)
-	{
+		}
 		
-	WebElement crossmark = 	driver.findElement(By.xpath("(//*[@data-testid=\"CloseIcon\"])[2]"));
+						
+	//for(int i=0; i<1; i++)
+	//{		
 	
-	Actions act = new Actions(driver);
-	act.moveToElement(crossmark).click().perform();	
+	//	wait.clickOnElement(interviewer, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-	}
+		//if(interviewer.getAttribute("Value").equals(null))
+		//{
+		//	wait.clickOnElement(interviewer, 3000);
+		//	
+		//	interviewer.sendKeys("divyakumari@acharya.ac.in");
+		//	interviewer.sendKeys(Keys.ARROW_DOWN);
+		//	interviewer.sendKeys(Keys.ENTER);
+//
+		//		wait.clickOnElement(interviewer, 3000);
+		//	interviewer.sendKeys("arun2870@acharya.ac.in");
+		//	interviewer.sendKeys(Keys.ARROW_DOWN);
+		//	interviewer.sendKeys(Keys.ENTER);
+			
+		//	wait.clickOnElement(interviewer, 3000);
+		//	interviewer.sendKeys("kaushal12@acharya.ac.in");
+		//	interviewer.sendKeys(Keys.ARROW_DOWN);
+		//	interviewer.sendKeys(Keys.ENTER);
+					 	
+	//	}
+		//else if(interviewervalue.getText() != null)
+	//{
 		
-		
-		wait.clickOnElement(interviewer, 3000);
+	//WebElement crossmark = 	driver.findElement(By.xpath("(//*[@data-testid=\"CloseIcon\"])[2]"));
 	
-		interviewer.sendKeys("divyakumari@acharya.ac.in");
-		interviewer.sendKeys(Keys.ARROW_DOWN);
-		interviewer.sendKeys(Keys.ENTER);
-
-		wait.clickOnElement(interviewer, 3000);
-		interviewer.sendKeys("arun2870@acharya.ac.in");
-		interviewer.sendKeys(Keys.ARROW_DOWN);
-		interviewer.sendKeys(Keys.ENTER);
+	//Actions act = new Actions(driver);
+	//act.moveToElement(crossmark).click().perform();	
 		
-		wait.clickOnElement(interviewer, 3000);
-		interviewer.sendKeys("kaushal12@acharya.ac.in");
-		interviewer.sendKeys(Keys.ARROW_DOWN);
-		interviewer.sendKeys(Keys.ENTER);
+	
 		
-	}	
+		
+		
+		
+	
 			
 		commonmethod(position, "Librarian");
 		
@@ -221,9 +256,7 @@ public class JobApplicationPage_University {
    
     WebElement date = 	driver.findElement(By.xpath("//*[@placeholder=\"dd/mm/yyyy hh:mm (a|p)m\"]"));
     date.sendKeys(Keys.CONTROL + "a");
-    date.sendKeys(Keys.DELETE);
-    date.sendKeys("candidate shortlisted");
-    
+    date.sendKeys(Keys.DELETE); 
     date.sendKeys(ReuseMethods.getthefreshdatewithHrs()); //enter date
 	 
 	WebElement okbutton = driver.findElement(By.xpath("//button[text()='OK']"));
@@ -430,6 +463,8 @@ public class JobApplicationPage_University {
 
 	public void validatingofferletter() throws InterruptedException, AWTException
 	{
+		Readconfig read = new Readconfig();
+		
 		wait = new ExplicitwaitMethods (driver);
 		 wait.clickOnElement(offerletter, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		 
@@ -453,19 +488,32 @@ public class JobApplicationPage_University {
 		 	
 		Robot robot = new Robot();
 		
-	for(int i=0 ; i<=8; i++)
+		 Thread.sleep(1500);
+		
+	for(int i=0 ; i<=7; i++)
 	{
 		Thread.sleep(300);
 		robot.keyPress(KeyEvent.VK_TAB);
 	}
-
 	
-	Thread.sleep(300);      	
-    robot.keyPress(KeyEvent.VK_ENTER);
-        
-
-        
+	robot.keyPress(KeyEvent.VK_ENTER);
+	 
+	for(int i=0 ; i<=2; i++)
+	{
+		Thread.sleep(2000);
+		robot.keyPress(KeyEvent.VK_TAB);
 	}
+
+	robot.keyPress(KeyEvent.VK_ENTER);     
+	
+	/* Toolkit toolkit = Toolkit.getDefaultToolkit();
+	    Clipboard clipboard = toolkit.getSystemClipboard();*/
+	    
+	    
+	}
+	
+	
+	
 	
 	
 	public void job_offer()
