@@ -38,14 +38,16 @@ public class ReuseMethods extends BaseClass_University {
 	       Date inputDate = inputFormat.parse(ReuseMethods.convertdatetostring());
 
 	       // Create a SimpleDateFormat object for the output date format
-	       SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
+	       SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+	      // SimpleDateFormat outputFormat = new SimpleDateFormat("DD/MM/YYYY hh:mm:ss a");
+	   
 
 	       // Format the Date object into the output date string
 	       String outputDateString = outputFormat.format(inputDate);
 
 	       // Print the output date string
 	       System.out.println(outputDateString);
-		return outputDateString;
+		return outputDateString +" AM";
 
 	  }
 	
