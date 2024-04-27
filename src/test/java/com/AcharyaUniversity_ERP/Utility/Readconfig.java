@@ -56,6 +56,11 @@ public String getpassword()
 	return pass;
 }
 
+public String applicant_search_field()
+{
+	String appsearchfield = pro.getProperty("Applicantsearch");
+	return appsearchfield;
+}
 
 }
 

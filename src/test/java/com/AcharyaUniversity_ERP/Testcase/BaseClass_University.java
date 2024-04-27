@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -14,12 +16,15 @@ import org.apache.log4j.Layout;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -32,6 +37,8 @@ public class BaseClass_University {
 
 	public static Logger log;
 	public static WebDriver driver;
+	ChromeOptions ops; 
+	
 	
 @Parameters("browser")
 @BeforeMethod
@@ -41,9 +48,10 @@ public void setup(String br) throws IOException
 	{
 	//System.setProperty("webdriver.chrome.driver", read.getchromepath());
 	
-	ChromeOptions ops = new ChromeOptions();  
+	 ops = new ChromeOptions();  
 	ops.addArguments("--remote-allow-origins=*");
 	ops.addArguments("--disable-notifications");
+	
 	
       driver = new ChromeDriver(ops);
       
@@ -67,7 +75,8 @@ public void setup(String br) throws IOException
 	
 	driver.get(read.geturl());
 	log.info("url is opened");
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));		
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+ ;		
 }
 
 public  String randomString() {
@@ -103,5 +112,28 @@ return date.toString().replace(" ","_" ).replace(":", "_");
 
 }
 
+
+
+public void downloadtospecificpath()
+{
+ 
+String location = "C:\\Users\\admin\\git\\Acharya_Uniersity_application\\Document";
+	
+	 Map<String, Object> prefs = new HashMap<>();
+	 prefs.put("download.default_directory", location);
+	 
+	 ops = new ChromeOptions(); 
+	 ops.setExperimentalOption(location, prefs);
+
+	 WebElement downloadbutton =  driver.findElement(By.id("download"));
+	 
+	 Actions act = new Actions(driver);
+	 act.moveToElement(downloadbutton).click().perform();
+	
 }
+
+}
+
+
+
 
