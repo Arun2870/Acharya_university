@@ -236,13 +236,6 @@ public class JobApplicationPage_University {
 	
 	//Actions act = new Actions(driver);
 	//act.moveToElement(crossmark).click().perform();	
-		
-	
-		
-		
-		
-		
-	
 			
 		commonmethod(position, "Librarian");
 		
@@ -358,6 +351,7 @@ public class JobApplicationPage_University {
 	}
 	
 	public void salaryBreakUp() throws InterruptedException, ParseException
+	
 	{
 		 wait = new ExplicitwaitMethods (driver);
 		wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
@@ -462,7 +456,9 @@ public class JobApplicationPage_University {
 	
 
 	public void validatingofferletter() throws InterruptedException, AWTException
+	
 	{
+		
 		Readconfig read = new Readconfig();
 		
 		wait = new ExplicitwaitMethods (driver);
@@ -517,7 +513,9 @@ public class JobApplicationPage_University {
 	
 	
 	public void job_offer()
+	
 	{
+		
 		wait = new ExplicitwaitMethods (driver);
 		
 		wait.clickOnElement(Job_offer, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
@@ -559,10 +557,13 @@ public class JobApplicationPage_University {
 		
 		WebElement accepted =	driver.findElement(By.xpath("//span[text()='Accepted']"));
 		wait.clickOnElement(accepted, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME );	
+		
 	}
 	
 	public void FixedTerm_Recruitment()
+	
 	{
+		
    wait = new ExplicitwaitMethods (driver);
    wait.clickOnElement(Recruitment, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
    
@@ -633,7 +634,9 @@ public class JobApplicationPage_University {
 	}
 
 	public void commonmethod(WebElement ele,String str) 
+	
 	{
+		
 		 wait = new ExplicitwaitMethods (driver);
 		
 		wait.clickOnElement(ele, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);	
