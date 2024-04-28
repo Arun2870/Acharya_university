@@ -4,7 +4,9 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +19,7 @@ public class ExplicitwaitMethods {
 	public static final int IMPLICIT_WAIT_TIME=10;
 	public static final int PAGE_LOAD_TIME=15;
 	public static final int EXPLICIT_WAIT_BASIC_TIME=30;
+	public static final int Extra_EXPLICIT_WAIT_BASIC_TIME=40;
 	
 	 WebDriver driver;
 	
@@ -41,6 +44,26 @@ public class ExplicitwaitMethods {
 		webElement.sendKeys(textToBeTyped);
 		
 	}
+	
+    public void typeTextIntoElementactionclass(WebElement element,String textToBeTyped,long durationInSeconds) {
+		
+		WebElement webElement = waitForElement(element,durationInSeconds);		
+		webElement.sendKeys(textToBeTyped);
+		webElement.sendKeys(Keys.ARROW_DOWN);
+		webElement.sendKeys(Keys.ENTER);
+		
+	 }
+    
+    public void typeTextIntoElementforclearingtext(WebElement element,String textToBeTyped,long durationInSeconds) {
+		
+  		WebElement webElement = waitForElement(element,durationInSeconds);		  		
+  		webElement.sendKeys(Keys.CONTROL + "a");
+  		webElement.sendKeys(Keys.DELETE);
+  		webElement.sendKeys(textToBeTyped);
+  		
+  	 }
+	
+	
 	
 	public WebElement waitForElement(WebElement element,long durationInSeconds) {
 		
@@ -185,6 +208,13 @@ public WebElement waitFormultipleElement(List<WebElement> element,long durationI
 		
 		WebElement webElement = waitForElement(element,durationInSeconds);
 		return webElement.getText();
+		
+	}
+	
+   public String getvalueFromElement(WebElement element,String value, long durationInSeconds) {
+		
+		WebElement webElement = waitForElement(element,durationInSeconds);
+		return webElement.getAttribute(value);
 		
 	}
 	
