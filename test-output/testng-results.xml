@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-29T03:11:27 IST" name="Suite" finished-at="2024-04-29T03:12:34 IST" duration-ms="67029">
+  <suite started-at="2024-04-29T12:56:16 IST" name="Suite" finished-at="2024-04-29T12:57:01 IST" duration-ms="44749">
     <groups>
     </groups>
-    <test started-at="2024-04-29T03:11:27 IST" name="Test" finished-at="2024-04-29T03:12:34 IST" duration-ms="67029">
+    <test started-at="2024-04-29T12:56:16 IST" name="Test" finished-at="2024-04-29T12:57:01 IST" duration-ms="44749">
       <class name="com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@71def8f8]" started-at="2024-04-29T03:11:27 IST" name="setup" finished-at="2024-04-29T03:11:30 IST" duration-ms="2454" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-04-29T12:56:17 IST" name="setup" finished-at="2024-04-29T12:56:23 IST" duration-ms="6366" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,32 +18,34 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="jobapplication()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@71def8f8]" started-at="2024-04-29T03:11:30 IST" name="jobapplication" finished-at="2024-04-29T03:12:34 IST" duration-ms="64095" status="FAIL">
+        <test-method signature="jobapplication()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-04-29T12:56:23 IST" name="jobapplication" finished-at="2024-04-29T12:57:01 IST" duration-ms="37652" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"(//textarea)[7]"}
-  (Session info: chrome=124.0.6367.61)
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Selected']"}
+  (Session info: chrome=124.0.6367.91)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.17.0', revision: 'e52b1be057*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.1'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5e5e658e015abadee8dc4a8eb224ecdc, findElement {value=(//textarea)[7], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.61, chrome: {chromedriverVersion: 124.0.6367.91 (51df0e5e17a8..., userDataDir: C:\Users\arunn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51231}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51231/devtoo..., se:cdpVersion: 124.0.6367.61, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5e5e658e015abadee8dc4a8eb224ecdc]]>
+Command: [01d73705110d97340e0b0d8aa3713733, findElement {value=//button[text()='Selected'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.91, chrome: {chromedriverVersion: 124.0.6367.91 (51df0e5e17a8..., userDataDir: C:\Users\admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57686}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57686/devtoo..., se:cdpVersion: 124.0.6367.91, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 01d73705110d97340e0b0d8aa3713733]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//textarea)[7]"}
-  (Session info: chrome=124.0.6367.61)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Selected']"}
+  (Session info: chrome=124.0.6367.91)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.17.0', revision: 'e52b1be057*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.1'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5e5e658e015abadee8dc4a8eb224ecdc, findElement {value=(//textarea)[7], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.61, chrome: {chromedriverVersion: 124.0.6367.91 (51df0e5e17a8..., userDataDir: C:\Users\arunn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51231}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51231/devtoo..., se:cdpVersion: 124.0.6367.61, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5e5e658e015abadee8dc4a8eb224ecdc
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+Command: [01d73705110d97340e0b0d8aa3713733, findElement {value=//button[text()='Selected'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.91, chrome: {chromedriverVersion: 124.0.6367.91 (51df0e5e17a8..., userDataDir: C:\Users\admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57686}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57686/devtoo..., se:cdpVersion: 124.0.6367.91, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 01d73705110d97340e0b0d8aa3713733
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:134)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
@@ -55,10 +57,12 @@ at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(Elemen
 at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.Result(JobApplicationPage_University.java:270)
+at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.Result(JobApplicationPage_University.java:315)
 at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:45)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
 at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:658)
 at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:219)
@@ -89,7 +93,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- jobapplication -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@71def8f8]" started-at="2024-04-29T03:12:34 IST" name="teardown" finished-at="2024-04-29T03:12:34 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-04-29T12:57:01 IST" name="teardown" finished-at="2024-04-29T12:57:01 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
