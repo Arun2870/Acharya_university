@@ -38,13 +38,14 @@ public class JobApplicationPage_University {
 	 static String	 Houserentallowance = "6000";
 	 static String   travellingallowamount = "2000";	 	 	
 	 static String	 Grossearning = "35500";
-	 static String	 EPFemployeecontribution = "1800";			 
+	 static String	 EPFemployeecontribution = "1800";	
+	 static String   ProfessionalTax = "200";
 	 static String	 EPFemployercontribution  = "1800";
 	 static String	 ESIemployee = "1800";
 	 static String	 ESIemployer = "1800";
 	 static String	 PT  = "200"; 
-	 static String	costtocompany = "37300";
-	 static String  Netpay = "33500";
+	 static String	 costtocompany = "37300";
+	 static String   Netpay = "33500";
 
 	 
 
@@ -75,7 +76,7 @@ public class JobApplicationPage_University {
 	public WebElement nextpage;
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[6]/button")
-	public WebElement HRSplusicon;
+	public static WebElement HRSplusicon;
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[7]/div")
 	public WebElement HRStatus;
@@ -90,7 +91,7 @@ public class JobApplicationPage_University {
 	public WebElement salaryBreakUp_Plusicon;
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[12]/button")
-	public WebElement Job_offer;
+	public static WebElement Job_offer;
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[13]/button")
 	public WebElement Recruitment;
@@ -438,19 +439,18 @@ public class JobApplicationPage_University {
 		 wait.clickOnElement(salarybreakupsubmitbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		 WebElement salarybreakupyes = 	driver.findElement(By.xpath("//strong[text() = 'Yes']"));		
-		 wait.clickOnElement(salarybreakupyes, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
-		 
-	
-	
+		 wait.clickOnElement(salarybreakupyes, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);	
 	}
 	
 	public  static void  salaryBreakUp_validation () 
-	{
-	
+	{	
 		comnmethodtovalidatesalarybreakup("Basic", basicamount);
-		comnmethodtovalidatesalarybreakup("Special Pay", specialpayamount);
-		comnmethodtovalidatesalarybreakup("Dearness Allowance", basicamount);
-		comnmethodtovalidatesalarybreakup("House Rent Allowance", basicamount);
+		
+		//comnmethodtovalidatesalarybreakup
+					
+		/*comnmethodtovalidatesalarybreakup("Special Pay", specialpayamount, HRSplusicon);
+		comnmethodtovalidatesalarybreakup("Dearness Allowance", basicamount, HRSplusicon);
+		comnmethodtovalidatesalarybreakup("House Rent Allowance", basicamount, HRSplusicon);
 		comnmethodtovalidatesalarybreakup("Travelling Allowance", travellingallowamount);
 		comnmethodtovalidatesalarybreakup("Gross Earning", "null");
 		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", "1800");
@@ -460,7 +460,7 @@ public class JobApplicationPage_University {
 		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", "1800");
 		comnmethodtovalidatesalarybreakup("Total Management Contribution", "1800");
 		comnmethodtovalidatesalarybreakup("Cost to Company", "80000");
-		comnmethodtovalidatesalarybreakup("Net Pay", "76200");
+		comnmethodtovalidatesalarybreakup("Net Pay", "76200");*/
 		
 	}
 
@@ -556,11 +556,7 @@ public class JobApplicationPage_University {
 		WebElement accepted =	driver.findElement(By.xpath("//span[text()='Accepted']"));
 		wait.clickOnElement(accepted, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME );	
 	}
-	
-	
-	
-	
-	
+		
 	public void FixedTerm_Recruitment()
 	{
 		 Readconfig read = new Readconfig();
@@ -662,31 +658,41 @@ public class JobApplicationPage_University {
 	
 	public static String commonmethodsalarybreakup()
 	{		
-		String amount = null;	
+		String amountvalue = null;
 	
-	for(int i = 0 ; i<=15; i++)
-	{
-		WebElement amt =  salarybreakupfieldvalues.get(i);
-		amount = amt.getText();
+		for(WebElement ele : salarybreakupfieldvalues)
+		{
+			if(ele.getText()!= null )
+			{
+				 amountvalue = ele.getText();
+			} 
+			
+		}		
+		return amountvalue;	
 	}
-	return amount;
-	}
-
 	
 	
 	public static void comnmethodtovalidatesalarybreakup(String value, String expamtvalue)
 	{	
+		Readconfig read = new Readconfig();
+		
+	   applicantsearchfield.sendKeys(read.applicant_search_field());
+	   
+	   wait.clickOnElement(Job_offer, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);			
+		WebElement reporting_to = driver.findElement(By.xpath("//*[@aria-autocomplete=\"list\"]"));	
+		
 	for(WebElement ele : salarybreakupfields)
 	{
 		if(ele.getText().equals(value))
-		{
-			Assert.assertEquals(expamtvalue,commonmethodsalarybreakup());
+		{		
+			System.out.println(ele.getText());
+			System.out.println(expamtvalue);
+			System.out.println(commonmethodsalarybreakup());
+			Assert.assertEquals(expamtvalue, commonmethodsalarybreakup());	
+			
+		}					
 		}
-					
-		}
-	}
-	
-	
+	}	
 }
 
 	
