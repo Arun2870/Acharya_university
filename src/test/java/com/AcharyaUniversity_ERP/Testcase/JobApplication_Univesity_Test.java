@@ -40,13 +40,16 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 			page.LandingonJobportalpage();
 		 
 			//page.rowssize();
-	        page.updating_HR_status();
+	      /*  page.updating_HR_status();
 			page.Scheduling_interview();
 		    page.Result();
 			page.salaryBreakUp();
 			page.validatingofferletter();
 			page.job_offer();
-			page.FixedTerm_Recruitment();
+			page.FixedTerm_Recruitment();*/
+			
+		//	page.salaryBreakUp_validation () ;
+			page.commonmethodsalarybreakup();
 			
 			
 	}
