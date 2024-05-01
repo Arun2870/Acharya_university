@@ -88,7 +88,7 @@ public class JobApplicationPage_University {
 	public WebElement Resultplusicon;
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[10]/button")
-	public WebElement salaryBreakUp_Plusicon;
+	public static WebElement salaryBreakUp_Plusicon;
 	
 	@FindBy(xpath = "//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/div[1]/div[12]/button")
 	public static WebElement Job_offer;
@@ -655,13 +655,24 @@ public class JobApplicationPage_University {
 		} while (!text.isEmpty());
 	}
 	
-	
 	public static String commonmethodsalarybreakup()
 	{		
+		Readconfig read = new Readconfig();
+		
+		   applicantsearchfield.sendKeys(read.applicant_search_field());
+		   
+			 wait = new ExplicitwaitMethods (driver);
+			wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+			 wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		String amountvalue = null;
+		
+	int noofamounts = 	salarybreakupfieldvalues.size();
 	
-		for(WebElement ele : salarybreakupfieldvalues)
-		{
+	for(int i = 0; i<=noofamounts; i++)
+	{
+	WebElement ele = salarybreakupfieldvalues.get(i);
+	System.out.println(ele.getText());
+	
 			if(ele.getText()!= null )
 			{
 				 amountvalue = ele.getText();
@@ -678,12 +689,13 @@ public class JobApplicationPage_University {
 		
 	   applicantsearchfield.sendKeys(read.applicant_search_field());
 	   
-	   wait.clickOnElement(Job_offer, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);			
-		WebElement reporting_to = driver.findElement(By.xpath("//*[@aria-autocomplete=\"list\"]"));	
+		 wait = new ExplicitwaitMethods (driver);
+		wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		 wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 	for(WebElement ele : salarybreakupfields)
 	{
-		if(ele.getText().equals(value))
+		if(ele.getText().endsWith(value))
 		{		
 			System.out.println(ele.getText());
 			System.out.println(expamtvalue);
