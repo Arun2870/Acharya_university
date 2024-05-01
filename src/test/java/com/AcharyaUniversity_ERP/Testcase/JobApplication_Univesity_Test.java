@@ -48,9 +48,9 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 			page.job_offer();
 			page.FixedTerm_Recruitment();*/
 			
-		//	page.salaryBreakUp_validation () ;
-			page.commonmethodsalarybreakup();
-			
+	page.salaryBreakUp_validation () ;
+	//page.commonmethodsalarybreakup(0);
+		
 			
 	}
 }
