@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed May 01 16:11:27 IST 2024</td>
+<td>Started on:</td><td>Thu May 02 17:20:58 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>92 seconds (92511 ms)</td>
+<tr><td>Total time:</td><td>31 seconds (31025 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,16 +76,22 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication()'><b>jobapplication</b><br>Test class: com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test</td>
-<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.click()&quot; because &quot;webElement&quot; is null
-	at com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods.clickOnElement(ExplicitwaitMethods.java:35)
-	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.LandingonJobportalpage(JobApplicationPage_University.java:119)
-	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:40)
+<td><div><pre>java.lang.AssertionError: expected [37300] but found [2921.25]
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.comnmethodtovalidatesalarybreakup(JobApplicationPage_University.java:740)
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.salaryBreakUp_validation(JobApplicationPage_University.java:510)
+	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:51)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace687892306", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace687892306'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.click()&quot; because &quot;webElement&quot; is null
-	at com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods.clickOnElement(ExplicitwaitMethods.java:35)
-	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.LandingonJobportalpage(JobApplicationPage_University.java:119)
-	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:40)
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace722321959", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace722321959'><pre>java.lang.AssertionError: expected [37300] but found [2921.25]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.comnmethodtovalidatesalarybreakup(JobApplicationPage_University.java:740)
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.salaryBreakUp_validation(JobApplicationPage_University.java:510)
+	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:51)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -115,7 +121,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>65</td>
+<td>24</td>
 <td>com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b</td></tr>
 </table><p>
 </body>

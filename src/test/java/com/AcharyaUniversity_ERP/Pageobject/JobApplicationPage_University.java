@@ -431,7 +431,7 @@ public class JobApplicationPage_University {
 	static String DearAllowanceamt =  ReuseMethods.convetinginttostring(DearAllowanceno);
 	
 	//HRA(House rent allowance) = 40% of Basic 
-	static int Houserentallowanceno =  40*6000/100;
+	static int Houserentallowanceno =  40*15000/100;
 	static String HRAnoamt =  ReuseMethods.convetinginttostring(Houserentallowanceno);
 	
 	//Gross earning = Basic + special pay + dear allowance + house rent + Travelling allowance 
@@ -439,11 +439,15 @@ public class JobApplicationPage_University {
 	static String grossearamt = ReuseMethods.convetinginttostring(grossearno);
 	
 	//EPF employee contribution (for employee deduction) = 12%(basic+da) 
-	static int epfemployeno  =  (15000+DearAllowanceno)*12/100 ;
+	// if (Basic + DA) is greater than 15000 we apply 12%(limit value = 15000) 
+	//here greater than 15000 so 12%(15000)
+	static int epfemployeno  =  (15000)*12/100 ;
 	static String epfemployeamt = ReuseMethods.convetinginttostring(epfemployeno);
 	
 	//EPF employer contribution (for employer management its like earning) = 12%(basic+da) 
-	static int epfemployerno  =  (15000+DearAllowanceno)*12/100 ;
+	// if (Basic + DA) is greater than 15000 we apply 12%(limit value = 15000) 
+		//here greater than 15000 so 12%(15000)
+	static int epfemployerno  =  (15000)*12/100 ;
 	static String epfemployeramt = ReuseMethods.convetinginttostring(epfemployerno);
 	
 	//ESI employee  0.75(basic+splpay+da+hra+ta)
@@ -451,8 +455,13 @@ public class JobApplicationPage_University {
 	static String esiemployeeamt = ReuseMethods.convetingdoubletostring(esiemployeeno);
 		
 	//ESI employer  3.25(basic+splpay+da+hra+ta) 
+
 	static double esiemployerno  =  (15000+5000+DearAllowanceno+Houserentallowanceno+1000)*3.25/100 ;
 	static String esiemployeramt = ReuseMethods.convetingdoubletostring(esiemployerno);
+	
+	//management contribution total
+	static double managementcontotno  = (esiemployerno+epfemployerno);
+	static String managementcontotamt = ReuseMethods.convetingdoubletostring(managementcontotno);
 	
     //CTC (cost to company) = Gross earning + management contribution total 
 	static double ctcno  = grossearno+(esiemployerno+epfemployerno);
@@ -471,7 +480,7 @@ public class JobApplicationPage_University {
 	 static String	 Houserentallowance = HRAnoamt;	 
 	 static String   travellingallowamount = "2000";		 
 	 static String	 Grossearning = grossearamt;
-	 
+	 static String	 managementtotal = managementcontotamt;
 	 static String	 EPFemployeecontribution = epfemployeamt;	
 	 static String   ProfessionalTax = "200";
 	 static String	 EPFemployercontribution  = epfemployeramt;
@@ -493,15 +502,15 @@ public class JobApplicationPage_University {
 		comnmethodtovalidatesalarybreakup("House Rent Allowance", Houserentallowance, 3);		
 		comnmethodtovalidatesalarybreakup("Travelling Allowance", travellingallowamount , 4);
 		comnmethodtovalidatesalarybreakup("Gross Earning", Grossearning, 5);		
-		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", epfemployeamt ,6);
+		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", EPFemployeecontribution ,6);
 		
 		//comnmethodtovalidatesalarybreakup("Professional Tax", "200", 7);
-		comnmethodtovalidatesalarybreakup("Total Deductions", "2000",8);
-		comnmethodtovalidatesalarybreakup("Management Contribution", "null",9);
-		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", epfemployeramt,10);
-		comnmethodtovalidatesalarybreakup("Total Management Contribution", "1800",11);
-		comnmethodtovalidatesalarybreakup("Cost to Company", "80000",12);
-		comnmethodtovalidatesalarybreakup("Net Pay", "76200",13);
+		//comnmethodtovalidatesalarybreakup("Total Deductions", "2000",8);
+	
+		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", EPFemployercontribution,10);
+		comnmethodtovalidatesalarybreakup("Total Management Contribution", managementtotal ,11);
+		comnmethodtovalidatesalarybreakup("Cost to Company", costtocompany,12);
+		comnmethodtovalidatesalarybreakup("Net Pay", Netpay ,13);
 		
 	}
 
