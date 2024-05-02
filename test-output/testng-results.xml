@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-01T16:11:27 IST" name="Suite" finished-at="2024-05-01T16:13:00 IST" duration-ms="92511">
+  <suite started-at="2024-05-02T17:20:58 IST" name="Suite" finished-at="2024-05-02T17:21:29 IST" duration-ms="31025">
     <groups>
     </groups>
-    <test started-at="2024-05-01T16:11:27 IST" name="Test" finished-at="2024-05-01T16:13:00 IST" duration-ms="92511">
+    <test started-at="2024-05-02T17:20:58 IST" name="Test" finished-at="2024-05-02T17:21:29 IST" duration-ms="31025">
       <class name="com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-05-01T16:11:29 IST" name="setup" finished-at="2024-05-01T16:11:53 IST" duration-ms="24834" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-05-02T17:20:59 IST" name="setup" finished-at="2024-05-02T17:21:05 IST" duration-ms="5944" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,16 +18,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="jobapplication()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-05-01T16:11:53 IST" name="jobapplication" finished-at="2024-05-01T16:12:59 IST" duration-ms="65585" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        <test-method signature="jobapplication()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-05-02T17:21:05 IST" name="jobapplication" finished-at="2024-05-02T17:21:29 IST" duration-ms="24423" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Cannot invoke "org.openqa.selenium.WebElement.click()" because "webElement" is null]]>
+              <![CDATA[expected [37300] but found [2921.25]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebElement.click()" because "webElement" is null
-at com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods.clickOnElement(ExplicitwaitMethods.java:35)
-at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.LandingonJobportalpage(JobApplicationPage_University.java:119)
-at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:40)
+              <![CDATA[java.lang.AssertionError: expected [37300] but found [2921.25]
+at org.testng.Assert.fail(Assert.java:110)
+at org.testng.Assert.failNotEquals(Assert.java:1413)
+at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+at org.testng.Assert.assertEquals(Assert.java:131)
+at org.testng.Assert.assertEquals(Assert.java:655)
+at org.testng.Assert.assertEquals(Assert.java:665)
+at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.comnmethodtovalidatesalarybreakup(JobApplicationPage_University.java:740)
+at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.salaryBreakUp_validation(JobApplicationPage_University.java:510)
+at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:51)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -58,11 +64,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- jobapplication -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-05-01T16:13:00 IST" name="teardown" finished-at="2024-05-01T16:13:00 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b]" started-at="2024-05-02T17:21:29 IST" name="teardown" finished-at="2024-05-02T17:21:29 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
