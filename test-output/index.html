@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\arunn\git\Acharya_university\testng.xml</span>
+                    <span>C:\Users\admin\git\Acharya_Uniersity_application\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -130,16 +130,10 @@
                   <a name="jobapplication">
                   </a> <!-- jobapplication -->
                   <span class="method-name">jobapplication</span>
-                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index 13 out of bounds for length 13
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
-	at java.base/java.util.Objects.checkIndex(Objects.java:359)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy16.get(Unknown Source)
-	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.commonmethodsalarybreakup(JobApplicationPage_University.java:673)
-	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:52)
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.click()&quot; because &quot;webElement&quot; is null
+	at com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods.clickOnElement(ExplicitwaitMethods.java:35)
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.LandingonJobportalpage(JobApplicationPage_University.java:119)
+	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:40)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 27 stack frames
 </div> <!-- stack-trace -->
@@ -150,7 +144,7 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\arunn\git\Acharya_university\testng.xml</span>
+            <span class="header-content">C:\Users\admin\git\Acharya_Uniersity_application\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -207,12 +201,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'jobapplication')
 data.setCell(0, 2, 'com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test')
-data.setCell(0, 3, 10873);
+data.setCell(0, 3, 65585);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -247,11 +241,11 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">jobapplication</span>
-                <span class="method-start">2475 ms</span>
+                <span class="method-start">24839 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">13524 ms</span>
+                <span class="method-start">91140 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

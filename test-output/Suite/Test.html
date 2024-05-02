@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Apr 30 23:59:44 IST 2024</td>
+<td>Started on:</td><td>Wed May 01 16:11:27 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>13 seconds (13817 ms)</td>
+<tr><td>Total time:</td><td>92 seconds (92511 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,32 +76,20 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication()'><b>jobapplication</b><br>Test class: com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test</td>
-<td><div><pre>java.lang.IndexOutOfBoundsException: Index 13 out of bounds for length 13
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
-	at java.base/java.util.Objects.checkIndex(Objects.java:359)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy16.get(Unknown Source)
-	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.commonmethodsalarybreakup(JobApplicationPage_University.java:673)
-	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:52)
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.click()&quot; because &quot;webElement&quot; is null
+	at com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods.clickOnElement(ExplicitwaitMethods.java:35)
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.LandingonJobportalpage(JobApplicationPage_University.java:119)
+	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:40)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace555136651", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace555136651'><pre>java.lang.IndexOutOfBoundsException: Index 13 out of bounds for length 13
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
-	at java.base/java.util.Objects.checkIndex(Objects.java:359)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at jdk.proxy2/jdk.proxy2.$Proxy16.get(Unknown Source)
-	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.commonmethodsalarybreakup(JobApplicationPage_University.java:673)
-	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:52)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace687892306", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace687892306'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.click()&quot; because &quot;webElement&quot; is null
+	at com.AcharyaUniversity_ERP.Utility.ExplicitwaitMethods.clickOnElement(ExplicitwaitMethods.java:35)
+	at com.AcharyaUniversity_ERP.Pageobject.JobApplicationPage_University.LandingonJobportalpage(JobApplicationPage_University.java:119)
+	at com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test.jobapplication(JobApplication_Univesity_Test.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
 	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:658)
 	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:219)
@@ -127,8 +115,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>10</td>
-<td>com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@71def8f8</td></tr>
+<td>65</td>
+<td>com.AcharyaUniversity_ERP.Testcase.JobApplication_Univesity_Test@79924b</td></tr>
 </table><p>
 </body>
 </html>
