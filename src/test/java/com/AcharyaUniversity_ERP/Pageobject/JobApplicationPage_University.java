@@ -30,6 +30,7 @@ import com.AcharyaUniversity_ERP.Utility.ReuseMethods;
 public class JobApplicationPage_University {
 	public static  WebDriver driver;
 	public static  ExplicitwaitMethods wait;
+	
 	public ReuseMethods reuse;
 	
 	public JobApplicationPage_University(WebDriver driver) {
@@ -423,7 +424,8 @@ public class JobApplicationPage_University {
 		 wait.clickOnElement(salarybreakupyes, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
-
+	
+	static int DearAllowanceno123;
 	//DA(Dear Allowance) = 50% of Basic 
 	static int DearAllowanceno =  50*15000/100;
 	static String DearAllowanceamt =  ReuseMethods.convetinginttostring(DearAllowanceno);

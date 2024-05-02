@@ -142,7 +142,21 @@ public class ReuseMethods extends BaseClass_University {
 	 
 	    }
 	 
-	 
+	 public static String convetinginttostring(int value)
+	 {
+		String str =  Integer.toString(value);
+		return str;
+	
+		 
+	 }
+
+	 public static String convetingdoubletostring(double esiemployeeno)
+	 {
+		String str =  Double.toString(esiemployeeno);
+		return str;
+	
+		 
+	 }
 	
 	 
 	}
