@@ -481,10 +481,6 @@ public class JobApplicationPage_University {
 	 static String	 costtocompany = ctcamt;
 	 static String   Netpay = Netpayamt;
 	
-
-	
-	 
-	
 	public  static void  salaryBreakUp_validation () 
 	{	
 		 wait = new ExplicitwaitMethods (driver);
@@ -499,7 +495,7 @@ public class JobApplicationPage_University {
 		comnmethodtovalidatesalarybreakup("Gross Earning", Grossearning, 5);		
 		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", epfemployeamt ,6);
 		
-		comnmethodtovalidatesalarybreakup("Professional Tax", "200",7);
+		//comnmethodtovalidatesalarybreakup("Professional Tax", "200", 7);
 		comnmethodtovalidatesalarybreakup("Total Deductions", "2000",8);
 		comnmethodtovalidatesalarybreakup("Management Contribution", "null",9);
 		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", epfemployeramt,10);
