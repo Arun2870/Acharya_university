@@ -492,21 +492,21 @@ public class JobApplicationPage_University {
 			wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 			 wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		comnmethodtovalidatesalarybreakup("Basic", basicamount, JobApplicationPage_University.giverowno("Basic"));	
-		comnmethodtovalidatesalarybreakup("Special Pay" , specialpayamount, JobApplicationPage_University.giverowno("Special Pay"));
-		comnmethodtovalidatesalarybreakup("Dearness Allowance", DearAllowance,JobApplicationPage_University.giverowno("Dearness Allowance"));
-		comnmethodtovalidatesalarybreakup("House Rent Allowance", Houserentallowance, JobApplicationPage_University.giverowno("House Rent Allowance"));		
-	    comnmethodtovalidatesalarybreakup("Travelling Allowance", travellingallowanceamount , JobApplicationPage_University.giverowno("Travelling Allowance"));
-		comnmethodtovalidatesalarybreakup("Gross Earning", Grossearning, JobApplicationPage_University.giverowno("Gross Earning"));		
-		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", EPFemployeecontribution ,JobApplicationPage_University.giverowno("EPF Employee Contribution"));
+		comnmethodtovalidatesalarybreakup("Basic", basicamount,"Basic");	
+		comnmethodtovalidatesalarybreakup("Special Pay" , specialpayamount,"Special Pay");
+		comnmethodtovalidatesalarybreakup("Dearness Allowance", DearAllowance,"Dearness Allowance");
+		comnmethodtovalidatesalarybreakup("House Rent Allowance", Houserentallowance,"House Rent Allowance");		
+	    comnmethodtovalidatesalarybreakup("Travelling Allowance", travellingallowanceamount,"Travelling Allowance" );
+		comnmethodtovalidatesalarybreakup("Gross Earning", Grossearning,"Gross Earning");		
+		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", EPFemployeecontribution,"EPF Employee Contribution");
 		
 		//comnmethodtovalidatesalarybreakup("Professional Tax", "200", 7);
 		//comnmethodtovalidatesalarybreakup("Total Deductions", "2000",8);
 	
-		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", EPFemployercontribution, JobApplicationPage_University.giverowno("EPF Employer Contribution"));
-		comnmethodtovalidatesalarybreakup("Total Management Contribution", managementtotal ,JobApplicationPage_University.giverowno("Total Management Contribution"));
-		comnmethodtovalidatesalarybreakup("Cost to Company", costtocompany, JobApplicationPage_University.giverowno("Cost to Company"));
-		comnmethodtovalidatesalarybreakup("Net Pay", Netpay ,JobApplicationPage_University.giverowno("Net Pay"));
+		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", EPFemployercontribution,"EPF Employer Contribution");
+		comnmethodtovalidatesalarybreakup("Total Management Contribution", managementtotal,"Total Management Contribution" );
+		comnmethodtovalidatesalarybreakup("Cost to Company", costtocompany,"Cost to Company");
+		comnmethodtovalidatesalarybreakup("Net Pay", Netpay,"Net Pay" );
 		
 	}
 
@@ -702,41 +702,50 @@ public class JobApplicationPage_University {
 	}
 	
 	
-	public static int giverowno(String value)	
+	public static String giveamtvalue(String value)	
 	{	
-		
+
 		   WebElement table = driver.findElement(By.xpath("//table[@class=\"MuiTable-root css-1dnsaco\"]"));
 		   WebElement tbody=table.findElement(By.tagName("tbody"));
 		   List<WebElement> rows= table.findElements(By.tagName("tr"));		
-		   int rowNo = 0;
+		   
 		   for(int i=0;i<rows.size();i++)
 		   {
 		     WebElement row = tbody.findElement(By.xpath("//tbody[@class=\"MuiTableBody-root css-1xnox0e\"]/tr["+(i+1)+"]"));
+		     
 		     if(row.getText().trim().contains(value))
 		     {
-		        rowNo=(i+1); 
-		            break;
+		    	String str =  row.getText();
+		    	String ind = str.replace(value, "");
+		    String st = ind.replaceAll("\\s", "");
+		  
+		    System.out.println(st);
+		    		     	 
 		     }
 
 		   }
-		System.out.println(rowNo);
-		   return rowNo;
+		return value;   
 		}
+	
+	
 				 
-	public static String commonmethodsalarybreakup(int no)
+	/*public static String commonmethodsalarybreakup(int no)
 	{		
 		
 		wait = new ExplicitwaitMethods (driver);
 		wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		List<WebElement> rows = driver.findElements(By.xpath("//*[@class = 'MuiTable-root css-1dnsaco']//tbody/tr"))	;
+		   WebElement table = driver.findElement(By.xpath("//table[@class=\"MuiTable-root css-1dnsaco\"]"));
+		   WebElement tbody=table.findElement(By.tagName("tbody"));
+		   List<WebElement> rows= table.findElements(By.tagName("tr"));
 		
-		driver.findElement(By.xpath("//tbody[@class=\"MuiTableBody-root css-1xnox0e\"]/tr["+(i+1)+"];
+		List<WebElement> rows1 = driver.findElements(By.xpath("//*[@class = 'MuiTable-root css-1dnsaco']//tbody/tr"));
+		
+		//driver.findElement(By.xpath("//tbody[@class=\"MuiTableBody-root css-1xnox0e\"]/tr["+(i+1)+"];
 			 
       int noofamounts = salarybreakupfieldvalues.size();
-      
-      
+   
       System.out.println(noofamounts);
       
 	  String amountvalue = null;
@@ -747,10 +756,10 @@ public class JobApplicationPage_University {
 	amountvalue = ele.getText();				
 	}		
 		return amountvalue;			
-	}
+	}*/
 	
 	
-	public static void comnmethodtovalidatesalarybreakup(String value, String expamtvalue,int num)
+	public static void comnmethodtovalidatesalarybreakup(String value, String expamtvalue,String val)
 	{		
 	for(WebElement ele : salarybreakupfields)
 	{
@@ -759,10 +768,10 @@ public class JobApplicationPage_University {
 			System.out.println(ele.getText());
 			System.out.println(value);
 			System.out.println(expamtvalue);
-			System.out.println(commonmethodsalarybreakup(num));
-			Assert.assertEquals(expamtvalue, commonmethodsalarybreakup(num));	
+			System.out.println(giveamtvalue(val));
+			Assert.assertEquals(expamtvalue,giveamtvalue(val) );	
 			
-		}					
+		}			
 		}
 	}	
 }
