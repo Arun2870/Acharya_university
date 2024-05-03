@@ -152,8 +152,14 @@ public class ReuseMethods extends BaseClass_University {
 
 	 public static String convetingdoubletostring(double esiemployeeno)
 	 {
-		String str =  Double.toString(esiemployeeno);
-		return str;
+			double a = esiemployeeno;
+			double roundOff = Math.round(a*100)/100;
+			
+		String doubletostring = Double.toString(roundOff);
+		String value = doubletostring.substring(0, 3);
+			
+		System.out.println(value);
+		return value;
 	
 		 
 	 }
