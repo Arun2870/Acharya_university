@@ -7,6 +7,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -30,6 +31,7 @@ import com.AcharyaUniversity_ERP.Utility.ReuseMethods;
 public class JobApplicationPage_University {
 	public static  WebDriver driver;
 	public static  ExplicitwaitMethods wait;
+	 Readconfig read = new Readconfig();;
 	
 	public ReuseMethods reuse;
 	
@@ -240,7 +242,7 @@ public class JobApplicationPage_University {
 	public void Result() throws InterruptedException 
 	{
 		
-		 Readconfig read = new Readconfig();
+     read = new Readconfig();
 		    
 	applicantsearchfield.sendKeys(read.applicant_search_field());
 	
@@ -392,16 +394,15 @@ public class JobApplicationPage_University {
 		commonmethod(salary_structure, "Special Salary Structure 4");
 			
 		WebElement basic = 	driver.findElement(By.xpath("//*[@name=\"basic-lumpsum\"]"));
-		//String basicamount = "3000";
+		
 		 wait.typeTextIntoElementforclearingtext(basic, basicamount, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);	
 	
 		 WebElement specialpay = driver.findElement(By.xpath("//*[@name=\"spl_1-lumpsum\"]"));
-		 //String specialpayamount = "2000";
+		
 		 wait.typeTextIntoElementforclearingtext(specialpay, specialpayamount, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
 		 WebElement travellingallow = 	driver.findElement(By.xpath("//*[@name='ta-lumpsum']"));
-		  //String  travellingallowamount = "1000";
-		 wait.typeTextIntoElementforclearingtext(travellingallow, travellingallowamount, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		wait.typeTextIntoElementforclearingtext(travellingallow, travellingallowanceamount, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		 	
 		 WebElement submitbutton =	driver.findElement(By.xpath("//button[text()='Submit']"));
 		 wait.clickOnElement(submitbutton, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
@@ -424,10 +425,8 @@ public class JobApplicationPage_University {
 		 wait.clickOnElement(salarybreakupyes, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
-	
-	static int DearAllowanceno123;
-	//DA(Dear Allowance) = 50% of Basic 
-	static int DearAllowanceno =  50*15000/100;
+	//DA(Dear Allowance) = 50% of Basic 	
+	static int DearAllowanceno =  50*Readconfig.basicpay()/100;
 	static String DearAllowanceamt =  ReuseMethods.convetinginttostring(DearAllowanceno);
 	
 	//HRA(House rent allowance) = 40% of Basic 
@@ -471,14 +470,11 @@ public class JobApplicationPage_University {
 	static double Netpayno  = grossearno+(esiemployerno+epfemployerno);
 	static String  Netpayamt = ReuseMethods.convetingdoubletostring(Netpayno);
 	
-	
-	
-	
-	 static String   basicamount = "15000";
-	 static String   specialpayamount = "5000";	 	 
+	 static String   basicamount = ReuseMethods.convetinginttostring(Readconfig.basicpay());
+	 static String   specialpayamount = ReuseMethods.convetinginttostring(Readconfig.specialpay());	 	 
 	 static String   DearAllowance = DearAllowanceamt;                    
 	 static String	 Houserentallowance = HRAnoamt;	 
-	 static String   travellingallowamount = "2000";		 
+	 static String   travellingallowanceamount =  ReuseMethods.convetinginttostring(Readconfig.trallowance());
 	 static String	 Grossearning = grossearamt;
 	 static String	 managementtotal = managementcontotamt;
 	 static String	 EPFemployeecontribution = epfemployeamt;	
@@ -496,21 +492,21 @@ public class JobApplicationPage_University {
 			wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 			 wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		
-		comnmethodtovalidatesalarybreakup("Basic", basicamount, 0);			
-		comnmethodtovalidatesalarybreakup("Special Pay" , specialpayamount, 1);
-		comnmethodtovalidatesalarybreakup("Dearness Allowance", DearAllowance,2);
-		comnmethodtovalidatesalarybreakup("House Rent Allowance", Houserentallowance, 3);		
-		comnmethodtovalidatesalarybreakup("Travelling Allowance", travellingallowamount , 4);
-		comnmethodtovalidatesalarybreakup("Gross Earning", Grossearning, 5);		
-		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", EPFemployeecontribution ,6);
+		comnmethodtovalidatesalarybreakup("Basic", basicamount, JobApplicationPage_University.giverowno("Basic"));	
+		comnmethodtovalidatesalarybreakup("Special Pay" , specialpayamount, JobApplicationPage_University.giverowno("Special Pay"));
+		comnmethodtovalidatesalarybreakup("Dearness Allowance", DearAllowance,JobApplicationPage_University.giverowno("Dearness Allowance"));
+		comnmethodtovalidatesalarybreakup("House Rent Allowance", Houserentallowance, JobApplicationPage_University.giverowno("House Rent Allowance"));		
+	    comnmethodtovalidatesalarybreakup("Travelling Allowance", travellingallowanceamount , JobApplicationPage_University.giverowno("Travelling Allowance"));
+		comnmethodtovalidatesalarybreakup("Gross Earning", Grossearning, JobApplicationPage_University.giverowno("Gross Earning"));		
+		comnmethodtovalidatesalarybreakup("EPF Employee Contribution", EPFemployeecontribution ,JobApplicationPage_University.giverowno("EPF Employee Contribution"));
 		
 		//comnmethodtovalidatesalarybreakup("Professional Tax", "200", 7);
 		//comnmethodtovalidatesalarybreakup("Total Deductions", "2000",8);
 	
-		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", EPFemployercontribution,10);
-		comnmethodtovalidatesalarybreakup("Total Management Contribution", managementtotal ,11);
-		comnmethodtovalidatesalarybreakup("Cost to Company", costtocompany,12);
-		comnmethodtovalidatesalarybreakup("Net Pay", Netpay ,13);
+		comnmethodtovalidatesalarybreakup("EPF Employer Contribution", EPFemployercontribution, JobApplicationPage_University.giverowno("EPF Employer Contribution"));
+		comnmethodtovalidatesalarybreakup("Total Management Contribution", managementtotal ,JobApplicationPage_University.giverowno("Total Management Contribution"));
+		comnmethodtovalidatesalarybreakup("Cost to Company", costtocompany, JobApplicationPage_University.giverowno("Cost to Company"));
+		comnmethodtovalidatesalarybreakup("Net Pay", Netpay ,JobApplicationPage_University.giverowno("Net Pay"));
 		
 	}
 
@@ -519,7 +515,7 @@ public class JobApplicationPage_University {
 		Readconfig read = new Readconfig();
 		
 		wait = new ExplicitwaitMethods (driver);
-		 wait.clickOnElement(offerletter, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		wait.clickOnElement(offerletter, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
 		 
 		Thread.sleep(3000);
 		
@@ -705,34 +701,60 @@ public class JobApplicationPage_University {
 		} while (!text.isEmpty());
 	}
 	
+	
+	public static int giverowno(String value)	
+	{	
+		
+		   WebElement table = driver.findElement(By.xpath("//table[@class=\"MuiTable-root css-1dnsaco\"]"));
+		   WebElement tbody=table.findElement(By.tagName("tbody"));
+		   List<WebElement> rows= table.findElements(By.tagName("tr"));		
+		   int rowNo = 0;
+		   for(int i=0;i<rows.size();i++)
+		   {
+		     WebElement row = tbody.findElement(By.xpath("//tbody[@class=\"MuiTableBody-root css-1xnox0e\"]/tr["+(i+1)+"]"));
+		     if(row.getText().trim().contains(value))
+		     {
+		        rowNo=(i+1); 
+		            break;
+		     }
+
+		   }
+		System.out.println(rowNo);
+		   return rowNo;
+		}
+				 
 	public static String commonmethodsalarybreakup(int no)
 	{		
+		
+		wait = new ExplicitwaitMethods (driver);
+		wait.waitForVisibilityOfElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		wait.clickOnElement(salaryBreakUp_Plusicon, ExplicitwaitMethods.EXPLICIT_WAIT_BASIC_TIME);
+		
+		List<WebElement> rows = driver.findElements(By.xpath("//*[@class = 'MuiTable-root css-1dnsaco']//tbody/tr"))	;
+		
+		driver.findElement(By.xpath("//tbody[@class=\"MuiTableBody-root css-1xnox0e\"]/tr["+(i+1)+"];
+			 
+      int noofamounts = salarybreakupfieldvalues.size();
+      
+      
+      System.out.println(noofamounts);
+      
+	  String amountvalue = null;
 			
-int noofamounts = 	salarybreakupfieldvalues.size();
-
-		String amountvalue = null;
-	
 	for(int i = 0; i<noofamounts; i++)
 	{
-	WebElement ele = salarybreakupfieldvalues.get(no);
-
-			if(ele.getText()!= null )
-			{
-				 amountvalue = ele.getText();
-				 
-			} 
-			
-		}		
+	WebElement ele = salarybreakupfieldvalues.get(no);	
+	amountvalue = ele.getText();				
+	}		
 		return amountvalue;			
 	}
 	
 	
 	public static void comnmethodtovalidatesalarybreakup(String value, String expamtvalue,int num)
-	{	
-	
+	{		
 	for(WebElement ele : salarybreakupfields)
 	{
-		if(ele.getText().endsWith(value))
+		if(ele.getText().equals(value))
 		{	
 			System.out.println(ele.getText());
 			System.out.println(value);
