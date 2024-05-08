@@ -2,12 +2,9 @@ package com.AcharyaUniversity_ERP.Pageobject;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -149,7 +146,7 @@ public class JobApplicationPage_University {
 
 	public void updating_HR_status() throws InterruptedException, ParseException {
 		
-		Readconfig read = new Readconfig();
+		 read = new Readconfig();
 		wait = new ExplicitwaitMethods(driver);
 
 		//wait.typeTextIntoElement(applicantsearchfield, read.applicant_search_field(),
@@ -447,11 +444,11 @@ public class JobApplicationPage_University {
 	}
 
 	// DA(Dear Allowance) = 50% of Basic
-	static int DearAllowanceno = 50 * Readconfig.basicpay() / 100;
+	static int DearAllowanceno = (50 * Readconfig.basicpay()) / 100;
 	static String DearAllowanceamt = ReuseMethods.convetinginttostring(DearAllowanceno);
 
 	// HRA(House rent allowance) = 40% of Basic
-	static int Houserentallowanceno = 40 * 15000 / 100;
+	static int Houserentallowanceno = (40 * 15000) / 100;
 	static String HRAnoamt = ReuseMethods.convetinginttostring(Houserentallowanceno);
 
 	// Gross earning = Basic + special pay + dear allowance + house rent +
@@ -463,27 +460,64 @@ public class JobApplicationPage_University {
 	// if (Basic + DA) is greater than 15000 we apply 12%(limit value = 15000)
 	// here greater than 15000 so 12%(15000)
 	
-	static int epfemployeno = (15000) * 12 / 100;
+	static int epfemployeno = (15000 * 12 )/ 100;
 	static String epfemployeamt = ReuseMethods.convetinginttostring(epfemployeno);
 
 	// EPF employer contribution (for employer management its like earning) =
 	// 12%(basic+da)
 	// if (Basic + DA) is greater than 15000 we apply 12%(limit value = 15000)
 	// here greater than 15000 so 12%(15000)
-	static int epfemployerno = (15000) * 12 / 100;
+	static int epfemployerno = (15000 * 12) / 100;
 	static String epfemployeramt = ReuseMethods.convetinginttostring(epfemployerno);
 
 	// ESI employee  0.75(basic+splpay+da+hra+ta)
-	static double esiemployeeno = (15000 + 5000 + DearAllowanceno + Houserentallowanceno + 1000) * 0.75 / 100;
-	static String esiemployeeamt = ReuseMethods.convetingdoubletostring(esiemployeeno);
+	//if total of (basic+splpay+da+hra+ta) is greater than 21000 than esi is not applicable
+	//if total of (basic+splpay+da+hra+ta) is lesser than 21000 than total*0.75/100 
+	static double esiemployeeno = (15000 + 5000 + DearAllowanceno + Houserentallowanceno + 2000) * 0.75 / 100;
+    static int totamt = (15000 + 5000 + DearAllowanceno + Houserentallowanceno + 2000);
+    
+    static double esiamtemployee  =  JobApplicationPage_University.checkingamtlimitvalue(totamt);
+   
+	static String esiemployeeamt = ReuseMethods.convetingdoubletostring(esiamtemployee);
 
 	// ESI employer  3.25(basic+splpay+da+hra+ta)
+	//if total of (basic+splpay+da+hra+ta) is greater than 21000 than esi is not applicable
+		//if total of (basic+splpay+da+hra+ta) is lesser than 21000 than total*0.75/100
 
 	static double esiemployerno = (15000 + 5000 + DearAllowanceno + Houserentallowanceno + 1000) * 3.25 / 100;
-	static String esiemployeramt = ReuseMethods.convetingdoubletostring(esiemployerno);
+	
+	
+	static double esiamtemployer  =  JobApplicationPage_University.checkingamtlimitvalue(totamt);
+	
+	public static double checkingamtlimitvalue(int value)
+	{	
+	
+		double esiempleamt = 0;
+		
+		for(int i=0; i<1; i++)	
+		{
+			double esiemployeeandemployeramt = 0 ;
+			
+			if(value<21000)
+			{
+				esiemployeeandemployeramt = totamt * 0.75 / 100;
+			}
+			else if(value>21000)			
+			{
+				esiemployeeandemployeramt = 0;
+				
+			}
+		 esiempleamt = esiemployeeandemployeramt ;
+		}
+		return esiempleamt;	
+	}
+	
+	static String esiemployeramt = ReuseMethods.convetingdoubletostring(esiamtemployer);
+	
+	
 	
 	// management contribution total
-	static double managementcontotno = (esiemployerno + epfemployerno);
+	static double managementcontotno = (esiamtemployer + epfemployerno);
 	static String managementcontotamt = ReuseMethods.convetingdoubletostring(managementcontotno);
 
 	// CTC (cost to company) = Gross earning + management contribution total

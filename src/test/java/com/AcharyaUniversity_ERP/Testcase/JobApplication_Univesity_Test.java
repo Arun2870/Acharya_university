@@ -19,9 +19,10 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 	@Test
 	public void jobapplication() throws InterruptedException, ParseException, AWTException 
 	{
-		 page = new JobApplicationPage_University(driver);	
 		
 			login = new LoginFunctionalitypage_University(driver);
+			
+			page = new JobApplicationPage_University(driver);	
 			
 			//login.visitsite();
 
@@ -42,7 +43,7 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 			//page.rowssize();
 			
 	        //page.updating_HR_status();
-			page.Scheduling_interview();
+			//page.Scheduling_interview();
 		   // page.Result();
 			//page.salaryBreakUp();
 			//page.validatingofferletter();

@@ -144,6 +144,7 @@ public class ReuseMethods extends BaseClass_University {
 	 
 	 public static String convetinginttostring(int value)
 	 {
+		 
 		String str =  Integer.toString(value);
 		return str;
 	
@@ -152,13 +153,14 @@ public class ReuseMethods extends BaseClass_University {
 
 	 public static String convetingdoubletostring(double esiemployeeno)
 	 {
+		
 			double a = esiemployeeno;
 			double roundOff = Math.round(a*100)/100;
 			
 		String doubletostring = Double.toString(roundOff);
 		String value = doubletostring.substring(0, 3);
 			
-		System.out.println(value);
+	
 		return value;
 	
 		 
