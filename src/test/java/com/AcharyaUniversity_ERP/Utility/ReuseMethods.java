@@ -94,8 +94,52 @@ public class ReuseMethods extends BaseClass_University {
 
 	  }
 	
+	public static String gettheafterdate() throws ParseException
+	 
+	  {
+	       // Create a SimpleDateFormat object for the input date format
+	       SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+	       // Parse the input date string into a Date object
+	       Date inputDate = inputFormat.parse(ReuseMethods.convertdate());
+
+	       // Create a SimpleDateFormat object for the output date format
+	       SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+	       // Format the Date object into the output date string
+	       String outputDateString = outputFormat.format(inputDate);
+
+	       // Print the output date string
+	       System.out.println(outputDateString);
+		return outputDateString;
+
+	  }
 	
 	
+	//May 2024
+	
+	 public static LocalDate getthedate(LocalDate date)
+	  {
+	        LocalDate nextDate = date.plusDays(184);
+	        while (nextDate.getDayOfWeek() == DayOfWeek.SATURDAY || nextDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+	            nextDate = nextDate.plusDays(1);
+	        }
+	        return nextDate;
+	  }
+	
+	
+	 public static String convertdate()
+	 {
+	 
+	        LocalDate currentDate = LocalDate.now();   //gets current date
+	                                           
+	        LocalDate nextWeekday = getthedate(currentDate);    //getting next week day
+	     
+	               
+	       String dateto_string = nextWeekday.toString();            //converting date to string
+	       return dateto_string;
+	 
+	    }
 	
 	 public static LocalDate getNext184days(LocalDate date)
 	  {

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import java.awt.AWTException;
 import java.text.ParseException;
+import java.time.Duration;
 
 import org.testng.annotations.Test;
 
@@ -18,6 +19,38 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 
 	@Test
 	public void jobapplication() throws InterruptedException, ParseException, AWTException 
+	{  
+		
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		
+			login = new LoginFunctionalitypage_University(driver);
+			
+			page = new JobApplicationPage_University(driver);	
+			
+			//login.visitsite();
+
+			login.username();
+
+			log.info("username is passed");
+
+			login.password();
+
+			log.info("password is passed");
+			
+			login.Login();
+			
+			log.info("clicked on login");
+						
+			Thread.sleep(3000);
+			
+			page.LandingonJobportalpage();	
+	       page.updating_HR_status();
+			page.Scheduling_interview();
+		 
+	       		
+	}
+	
+/*	public void jobapplicatiobn() throws InterruptedException  
 	{
 		
 			login = new LoginFunctionalitypage_University(driver);
@@ -39,11 +72,7 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 			log.info("clicked on login");
 			
 			page.LandingonJobportalpage();
-		 
-			//page.rowssize();
-			
-	        //page.updating_HR_status();
-			//page.Scheduling_interview();
+		
 		   // page.Result();
 			//page.salaryBreakUp();
 			//page.validatingofferletter();
@@ -52,9 +81,9 @@ public class JobApplication_Univesity_Test extends BaseClass_University  {
 			
 		
 	          page.salaryBreakUp_validation () ;
-	       
-			
-		
-			
+	       		
 	}
+	*/
+	
+	
 }

@@ -76,7 +76,7 @@ public void setup(String br) throws IOException
 	driver.get(read.geturl());
 	log.info("url is opened");
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
- ;		
+ 	
 }
 
 public  String randomString() {
